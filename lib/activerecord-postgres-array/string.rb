@@ -22,6 +22,8 @@ class String
       
       if base_type == :decimal
         return elements.collect(&:to_d)
+      elsif base_type == :integer
+        return elements.collect(&:to_i)
       else
         return elements
       end
