@@ -4,7 +4,7 @@ module ActiveRecord
 
   module ConnectionAdapters
     class PostgreSQLAdapter < AbstractAdapter
-      POSTGRES_ARRAY_TYPES = %w( string text integer float decimal datetime timestamp time date binary boolean )
+      POSTGRES_ARRAY_TYPES = %w( string text integer float decimal datetime timestamp time date binary boolean uuid )
 
       def native_database_types_with_array(*args)
         native_database_types_without_array.merge(POSTGRES_ARRAY_TYPES.inject(Hash.new) {|h, t| h.update("#{t}_array".to_sym => {:name => "#{t}_array"})})
